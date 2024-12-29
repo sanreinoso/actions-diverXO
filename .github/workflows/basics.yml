@@ -40,10 +40,10 @@ jobs:
         env:
           StepVar: My_step_variable
         run: |
-          echo "Esta es la variable de entorno del flujo -> $DAY_OF_WEEK"
-          echo "Esta es la variable de entorno del trabajo -> $JobVar"
-          echo "Esta es la variable de entorno del step -> $StepVar"
+          echo "Esta es la variable de entorno del flujo -> ${{ env.DAY_OF_WEEK }}"
+          echo "Esta es la variable de entorno del trabajo -> ${{ env.JobVar}}"
+          echo "Esta es la variable de entorno del step -> ${{ env.StepVar}}"
       - name: Imprimir variables configurados en el repositorio
         run: |
-          echo "Variable url matri -> ${{ env.URL_MATRI }}"
-          echo "Variable image portainer -> ${{ env.PORTAINER_IMAGE }}"
+          echo "Variable url matri -> ${{ vars.MATRI_URL}}"
+          echo "Variable image portainer -> ${{ vars.PORTAINER_IMAGE}}"

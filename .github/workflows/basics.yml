@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 env:
   DAY_OF_WEEK: "Monday"
-
+ 
 # Define los trabajos que se ejecutarán en el flujo de trabajo, puedes tener varios trabajos.
 jobs:
   demo-1:
@@ -43,4 +43,7 @@ jobs:
           echo "Esta es la variable de entorno del flujo -> $DAY_OF_WEEK"
           echo "Esta es la variable de entorno del trabajo -> $JobVar"
           echo "Esta es la variable de entorno del step -> $StepVar"
-      - run: echo "Finzalizadno el job demo-2. $StepVar"
+      - name: Imprimir variables configurados en el repositorio
+        run: |
+          echo "Variable url matri -> ${{ env.URL_MATRI }}"
+          echo "Variable image portainer -> ${{ env.PORTAINER_IMAGE }}"

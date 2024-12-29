@@ -46,5 +46,5 @@ jobs:
           echo "Esta es la variable de entorno del step -> ${{ env.StepVar}}"
       - name: Imprimir variables configurados en el repositorio
         run: |
-          echo "Variable url matri -> $URL_MATRI"
+          echo "Variable url matri -> ${{vars.URL_MATRI}}"
           echo "Variable image portainer -> ${{ vars.PORTAINER_IMAGE}}"

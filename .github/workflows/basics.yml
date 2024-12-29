@@ -1,5 +1,5 @@
 name: Basic actions
-run-name: ${{ github.actor }}
+run-name: ${{ github.run_id }}
 on:
   # Ejecuta el flujo de trabajo en la rama main y cuando se envía un PR a la rama main
   push:

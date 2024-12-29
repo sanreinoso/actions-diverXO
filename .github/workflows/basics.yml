@@ -12,10 +12,10 @@ on:
 
 # Define los trabajos que se ejecutarán en el flujo de trabajo, puedes tener varios trabajos.
 jobs:
-  show-variables:
+  demo-1:
     # The type of runner that the job will run on
-    name: Show variables
-    runs-on: ubuntu-latest
+    name: Demo 1
+    runs-on: ubuntu-24.04
 
     steps:
       - run: echo "Este flujo fue lanzado por el evento -> ${{ github.event_name }}"

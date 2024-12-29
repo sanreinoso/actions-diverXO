@@ -1,15 +1,16 @@
 name: Basic actions
+run-name: ${{ github.actor }}
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
+  # Ejecuta el flujo de trabajo en la rama main y cuando se envía un PR a la rama main
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Permite ejecutar el flujo de trabajo manualmente
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Define los trabajos que se ejecutarán en el flujo de trabajo, puedes tener varios trabajos.
 jobs:
   show-variables:
     # The type of runner that the job will run on
@@ -17,9 +18,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - run: echo "Este flujo fue lanzado por el evento -> ${{ github.event_name }}"
+      - run: echo "El trabajo que se está ejecutando en el S.O -> ${{ runner.os }}"
+      - run: echo "Nombre de la rama que lanzó el flujo -> ${{ github.ref }}"
+      - name: Consultar el codigo del repositorio
+        uses: actions/checkout@v4
+      - run : echo "Se ha clonado el repositorio -> ${{ github.repository }} en el runner"
+      - name: Listar los archivos del repositorio
+        run: ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
